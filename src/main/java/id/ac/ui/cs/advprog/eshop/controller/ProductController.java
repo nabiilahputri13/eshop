@@ -52,6 +52,11 @@ public class ProductController {
     public String editProductPost(@ModelAttribute Product product, Model model) {
         service.update(product);
         return "redirect:list";
+      
+    @GetMapping("/delete/{productId}")
+    public String deleteProduct(@PathVariable("productId") String productId) {
+        service.delete(productId);
+        return "redirect:/product/list";
     }
 
 }
