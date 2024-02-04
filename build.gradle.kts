@@ -58,6 +58,7 @@ tasks.register<Test>("functionalTest") {
         includeTestsMatching("*FunctionalTest")
     }
 }
+
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }

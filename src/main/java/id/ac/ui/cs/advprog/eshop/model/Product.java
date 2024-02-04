@@ -14,4 +14,5 @@ public class Product {
         // Generate a UUID for productId
         this.productId = UUID.randomUUID().toString();
     }
+
 }
