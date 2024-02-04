@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product findById(String productId) {
-        // Implement logic to find product by ID
+
 
         return productRepository.findById(productId);
     }
@@ -44,7 +44,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void update(Product product) {
 
-        // Implement logic to update product details
         productRepository.update(product);
     }
 

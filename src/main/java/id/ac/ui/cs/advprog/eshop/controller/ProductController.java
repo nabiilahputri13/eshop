@@ -36,6 +36,12 @@ public class ProductController {
         return "productList";
     }
 
+    @GetMapping("/delete/{productId}")
+    public String deleteProduct(@PathVariable("productId") String productId) {
+        service.delete(productId);
+        return "redirect:/product/list";
+    }
+
     @GetMapping("/edit/{productId}")
     public String editProductPage(@PathVariable String productId, Model model) {
         Product product = service.findById(productId);
@@ -52,11 +58,6 @@ public class ProductController {
     public String editProductPost(@ModelAttribute Product product, Model model) {
         service.update(product);
         return "redirect:list";
-      
-    @GetMapping("/delete/{productId}")
-    public String deleteProduct(@PathVariable("productId") String productId) {
-        service.delete(productId);
-        return "redirect:/product/list";
-    }
 
+    }
 }

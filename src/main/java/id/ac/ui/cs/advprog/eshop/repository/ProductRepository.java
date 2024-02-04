@@ -50,19 +50,18 @@ public class ProductRepository {
         }
     }
 
-        return null; // If product not found
-    }
-
-    public void update(Product updatedProduct) {
-        for (int i = 0; i < productData.size(); i++) {
-            Product product = productData.get(i);
-            if (product.getProductId().equals(updatedProduct.getProductId())) {
-                productData.set(i, updatedProduct);
-                return;
-            }
-        }
-    }
-
-
-
+//        return null; // If product not found
 }
+
+//    public void update(Product updatedProduct) {
+//        for (int i = 0; i < productData.size(); i++) {
+//            Product product = productData.get(i);
+//            if (product.getProductId().equals(updatedProduct.getProductId())) {
+//                productData.set(i, updatedProduct);
+//                return;
+//            }
+//        }
+//    }
+
+
+//}
