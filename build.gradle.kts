@@ -42,7 +42,7 @@ dependencies {
 }
 
 tasks.register<Test>("unitTest"){
-    description = "Runs unit tests"
+    description = "Runs unit tests."
     group = "verification"
 
     filter{
@@ -51,7 +51,7 @@ tasks.register<Test>("unitTest"){
 }
 
 tasks.register<Test>("functionalTest"){
-    description = "Runs unit tests"
+    description = "Runs functional tests."
     group = "verification"
 
     filter{
