@@ -48,7 +48,6 @@ public class ProductControllerTest {
 
         verify(productService, times(1)).delete(nonExistingProductId);
         assert viewName.equals("redirect:/product/list");
-         }
 
     @Test
     public void testEditProductPage() {
