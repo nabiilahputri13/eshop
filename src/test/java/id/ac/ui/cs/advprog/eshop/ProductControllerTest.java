@@ -47,7 +47,7 @@ public class ProductControllerTest {
         String viewName = productController.deleteProduct(nonExistingProductId);
 
         verify(productService, times(1)).delete(nonExistingProductId);
-        assert viewName.equals("redirect:/product/list");
+        assert viewName.equals("redirect:/product/list");}
 
     @Test
     public void testEditProductPage() {
