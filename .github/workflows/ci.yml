@@ -18,7 +18,10 @@ jobs:
           distribution: "temurin"
           java-version: "21"
           cache: "gradle"
+<<<<<<< HEAD
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
+=======
+>>>>>>> 61c1fbf (add ci.yml)
       - name: Run unit tests
         run: ./gradlew test
