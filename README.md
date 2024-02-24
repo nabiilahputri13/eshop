@@ -1,6 +1,25 @@
+# Reflection - Tutorial 3
+1. I applied
+   - OCP : I added 'update' method to Car and Product (model) so that if subclasses are made, updates could still be done like what the subclasses desired and not stuck by the name, quantity, and color
+   - SRP & DIP : I divided CarController and ProductController into different file
+   - LSP : I removed 'extends ProductController' from CarController so that it doesn't inherit from another class
+   - ISP : CarService and ProductService are located in a different file because at one time, only one of those services are used.
+  
+2. - Single Responsibility Principle (SRP): Each class should have only one reason to change, making the code easier to understand, maintain, and extend. This leads to more modular and cohesive code.
+   - Open/Closed Principle (OCP): Software entities should be open for extension but closed for modification. This encourages the use of abstraction and polymorphism, allowing new functionality to be added without altering existing code. (e.g. splitting  CarController and ProductController)
+   - Liskov Substitution Principle (LSP): Objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program. This promotes code reuse and ensures that inheritance hierarchies are designed correctly. (e.g class CarController shouldn't depends on ProductController)
+   - Interface Segregation Principle (ISP): Clients should not be forced to depend on interfaces they do not use. By segregating interfaces into smaller and more specific ones, this principle prevents the creation of overly large and monolithic interfaces, leading to better code maintainability and flexibility. (e.g. locating CarService and ProductService in a different file)
+   - Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules. Both should depend on abstractions. This promotes loose coupling between classes and modules, making the codebase more flexible, scalable, and easier to test and maintain. 
+
+3. - Hard to Change: Without SOLID principles, making changes to the code becomes tough. It's like trying to fix one thing, but accidentally breaking something else. (e.g. if class CarController depends on ProductController)
+   - Tough to Understand: When code is messy and tangled up, it's like trying to read a messy handwriting. It's hard to figure out what each part does. 
+   - Hard to Test : If the code isn't organized well, it's hard to make sure everything works properly.
+   - Hard to Add Code : If we want to write a new code but haven't applied SOLID principle, we should make many changes to the existing code so that it works properly.
+
 # Reflection - Tutorial 2
 1. When I ran the code coverage html, it turns out that my tests for repository, service, and controller part aren't doing really good. So I fixed these part by adding more tests. The tests I added are actually quite similar to the previous one, but I just added stuffs like update & delete for product with valid, invalid, and null ID.
 2. Yes, I think my current implementation has met the definition of Continuous Integration and Continuous Deployment. A  CI/CD implementation can be considered effective if it involves frequent integration (A key aspect of CI/CD is the frequent integration of code changes into the main repository and the automated deployment of these changes to production), comprehensive automated testing ( Continuous Integration emphasizes automated testing to ensure that code changes don't introduce defects), and automated deployment to production ( Continuous Deployment involves automatically deploying code changes to production after successful testing in the CI pipeline). These elements collectively support the goals of delivering high-quality software continuously and efficiently.
+   
 # Reflection 1 - Tutorial 1
 Clean code principles applied:
 - Descriptive naming
