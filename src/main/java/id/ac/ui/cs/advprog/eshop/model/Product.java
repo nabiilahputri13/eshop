@@ -15,4 +15,10 @@ public class Product {
         this.productId = UUID.randomUUID().toString();
     }
 
+    public Product update(Product newProduct){
+        this.setProductName(newProduct.getProductName());
+        this.setProductQuantity(newProduct.getProductQuantity());
+
+        return this;
+    }
 }

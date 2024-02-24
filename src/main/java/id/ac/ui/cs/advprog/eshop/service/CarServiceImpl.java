@@ -17,7 +17,6 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car create(Car car) {
-        // TODO Auto-generated method stub
         carRepository.create(car);
         return car;
     }
@@ -32,19 +31,14 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car findById(String carId){
-        Car car;
-        // www <-- I'm not sure what this comment means
-        car = carRepository.findById(carId);
-        return car;
+        return carRepository.findById(carId);
     }
     @Override
     public void update(String carId, Car car) {
-        // TODO Auto-generated method stub
         carRepository.update(carId, car);
     }
     @Override
     public void deleteCarById(String carId) {
-        // TODO Auto-generated method stub
         carRepository.delete(carId);
     }
 }
