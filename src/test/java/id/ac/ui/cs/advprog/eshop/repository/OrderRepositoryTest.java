@@ -70,11 +70,11 @@ class OrderRepositoryTest {
     void testFindByIdIfIdNotFound() {
         for (Order order : orders) {
             orderRepository.save(order);
-
+        }
             Order findResult = orderRepository.findById("zczc");
             assertNull(findResult);
 
-        }
+
     }
 
     @Test
