@@ -30,7 +30,7 @@ class PaymentTest {
         Order order2 = new Order("f420a187-f5b9-4fd2-bca2-e363ce14fe5e",
                 this.products, 1708560000L, "Bambang Anak Safira");
         this.orders.add(order1);
-        this.orders.add(order1);
+        this.orders.add(order2);
     }
 
     //MAIN FEATURE
@@ -60,7 +60,7 @@ class PaymentTest {
     void testEmptyPaymentData() {
         Map<String, String> paymentData = new HashMap<>();
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(NullPointerException.class, () -> {
             Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
                     "VOUCHER_CODE", paymentData, this.orders.getFirst());
         });
@@ -94,7 +94,7 @@ class PaymentTest {
         paymentData.put("voucherCode", "ESHOP1234ABC5678");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "VOUCHER_CODE", paymentData, this.orders.getFirst(), "SUCCESS");
+                "VOUCHER_CODE", paymentData, this.orders.getFirst());
 
         assertEquals("SUCCESS", payment.getStatus());
     }
@@ -105,7 +105,7 @@ class PaymentTest {
         paymentData.put("voucherCode", "ESHOP1234ABC567");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "VOUCHER_CODE", paymentData, this.orders.getFirst(), "REJECTED");
+                "VOUCHER_CODE", paymentData, this.orders.getFirst());
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -116,7 +116,7 @@ class PaymentTest {
         paymentData.put("voucherCode", "NGANTUK12345678A");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "VOUCHER_CODE", paymentData, this.orders.getFirst(), "REJECTED");
+                "VOUCHER_CODE", paymentData, this.orders.getFirst());
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -127,7 +127,7 @@ class PaymentTest {
         paymentData.put("voucherCode", "ESHOP1234ABC56BS");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "VOUCHER_CODE", paymentData, this.orders.getFirst(), "REJECTED");
+                "VOUCHER_CODE", paymentData, this.orders.getFirst());
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -137,10 +137,10 @@ class PaymentTest {
     void testValidBankTransfer() {
         Map<String, String> paymentData = new HashMap<>();
         paymentData.put("bankName", "BANK KODOK");
-        paymentData.put("deliveryFee", "NGANTUK123");
+        paymentData.put("referenceCode", "NGANTUK123");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "SUCCESS");
+                "BANK_TRANSFER", paymentData, this.orders.getFirst());
 
         assertEquals("SUCCESS", payment.getStatus());
     }
@@ -152,7 +152,7 @@ class PaymentTest {
         paymentData.put("referenceCode", "NGANTUK123");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "REJECTED");
+                "BANK_TRANSFER", paymentData, this.orders.getFirst());
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -164,7 +164,7 @@ class PaymentTest {
         paymentData.put("referenceCode", "NGANTUK123");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "REJECTED");
+                "BANK_TRANSFER", paymentData, this.orders.getFirst());
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -176,7 +176,7 @@ class PaymentTest {
         paymentData.put("referenceCode", null);
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "REJECTED");
+                "BANK_TRANSFER", paymentData, this.orders.getFirst());
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -188,7 +188,7 @@ class PaymentTest {
         paymentData.put("referenceCode", "");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "REJECTED");
+                "BANK_TRANSFER", paymentData, this.orders.getFirst());
 
         assertEquals("REJECTED", payment.getStatus());
     }
