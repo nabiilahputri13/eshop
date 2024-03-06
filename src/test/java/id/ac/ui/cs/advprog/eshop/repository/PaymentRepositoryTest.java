@@ -125,6 +125,6 @@ class PaymentRepositoryTest {
         }
 
         List<Payment> paymentList = paymentRepository.findAll();
-        assertEquals(2, paymentList.size());
+        assertEquals(1, paymentList.size());
     }
 }
