@@ -12,8 +12,8 @@ public interface ProductService {
 
     void delete(String productId);
 
-//    public Product findById(String productId); // Add this method
-//    public void update(Product product); // Add this method
+    //    public Product findById(String productId); // Add this method
+    //    public void update(Product product); // Add this method
 
 
 }
