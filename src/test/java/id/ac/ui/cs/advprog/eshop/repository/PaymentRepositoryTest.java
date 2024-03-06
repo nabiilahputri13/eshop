@@ -26,6 +26,7 @@ class PaymentRepositoryTest {
     void setUp() {
         this.products = new ArrayList<>();
         this.orders = new ArrayList<>();
+        paymentRepository = new PaymentRepository();
         PaymentRepository paymentRepository = new PaymentRepository();
         Product product1 = new Product();
         product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
@@ -123,7 +124,7 @@ class PaymentRepositoryTest {
             paymentRepository.save(payment);
         }
 
-        List<Payment> paymentList = paymentRepository.getAllPayment();
+        List<Payment> paymentList = paymentRepository.findAll();
         assertEquals(2, paymentList.size());
     }
 }
