@@ -1,5 +1,6 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -92,6 +93,27 @@ public class Payment {
                 throw new IllegalArgumentException("Cannot proceed payment");
             }
             this.status = verifyTransfer();
+        }
+    }
+
+    public Payment(String id, String method, String status, Map<String, String> paymentData, Order order) {
+        this.id = id;
+        this.order = order;
+        this.method = method;
+        this.paymentData = paymentData;
+        setStatus(status);
+    }
+
+    public void setStatus(String status) {
+        if (PaymentStatus.contains(status)) {
+            this.status = status;
+            if (status.equals(PaymentStatus.SUCCESS.getValue())) {
+                order.setStatus("SUCCESS");
+            } else if (status.equals(PaymentStatus.REJECTED.getValue())) {
+                order.setStatus("FAILED");
+            }
+        } else {
+            throw new IllegalArgumentException();
         }
     }
 }
