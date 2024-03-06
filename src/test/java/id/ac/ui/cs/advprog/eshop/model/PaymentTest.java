@@ -5,10 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.*;
 class PaymentTest {
     private List<Product> products;
     private List<Order> orders;
@@ -97,9 +94,9 @@ class PaymentTest {
         paymentData.put("voucherCode", "ESHOP1234ABC5678");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "VOUCHER_CODE", paymentData, this.orders.getFirst());
+                "VOUCHER_CODE", paymentData, this.orders.getFirst(), "SUCCESS");
 
-        assertEquals("SUCCES", payment.getStatus());
+        assertEquals("SUCCESS", payment.getStatus());
     }
 
     @Test
@@ -108,7 +105,7 @@ class PaymentTest {
         paymentData.put("voucherCode", "ESHOP1234ABC567");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "VOUCHER_CODE", paymentData, this.orders.getFirst());
+                "VOUCHER_CODE", paymentData, this.orders.getFirst(), "REJECTED");
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -119,7 +116,7 @@ class PaymentTest {
         paymentData.put("voucherCode", "NGANTUK12345678A");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "VOUCHER_CODE", paymentData, this.orders.getFirst());
+                "VOUCHER_CODE", paymentData, this.orders.getFirst(), "REJECTED");
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -130,7 +127,7 @@ class PaymentTest {
         paymentData.put("voucherCode", "ESHOP1234ABC56BS");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "VOUCHER_CODE", paymentData, this.orders.getFirst());
+                "VOUCHER_CODE", paymentData, this.orders.getFirst(), "REJECTED");
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -143,9 +140,9 @@ class PaymentTest {
         paymentData.put("deliveryFee", "NGANTUK123");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst());
+                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "SUCCESS");
 
-        assertEquals("SUCCES", payment.getStatus());
+        assertEquals("SUCCESS", payment.getStatus());
     }
 
     @Test
@@ -155,7 +152,7 @@ class PaymentTest {
         paymentData.put("referenceCode", "NGANTUK123");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst());
+                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "REJECTED");
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -167,7 +164,7 @@ class PaymentTest {
         paymentData.put("referenceCode", "NGANTUK123");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst());
+                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "REJECTED");
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -179,7 +176,7 @@ class PaymentTest {
         paymentData.put("referenceCode", null);
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst());
+                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "REJECTED");
 
         assertEquals("REJECTED", payment.getStatus());
     }
@@ -191,7 +188,7 @@ class PaymentTest {
         paymentData.put("referenceCode", "");
 
         Payment payment = new Payment("dba9cbfa-7c51-41cb-b35f-654ddff911a0",
-                "BANK_TRANSFER", paymentData, this.orders.getFirst());
+                "BANK_TRANSFER", paymentData, this.orders.getFirst(), "REJECTED");
 
         assertEquals("REJECTED", payment.getStatus());
     }
