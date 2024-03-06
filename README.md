@@ -1,3 +1,7 @@
+# Reflection - Tutorial 4
+1. This TDD flow is definitely useful. It enhanced the code independence, it refactors for clarity, it optimizes execution tiem, adn improve failure diagnostic
+2. 
+
 # Reflection - Tutorial 3
 1. I applied
    - OCP : I added 'update' method to Car and Product (model) so that if subclasses are made, updates could still be done like what the subclasses desired and not stuck by the name, quantity, and color
